@@ -20,39 +20,53 @@ export default function FAQ() {
         "Ya, kami melayani perjalanan dalam Kota Banda Aceh maupun ke berbagai daerah di Aceh.",
     },
     {
+      question: "Apakah tersedia paket wisata Aceh?",
+      answer:
+        "Ya. Kami melayani perjalanan wisata ke berbagai destinasi di Aceh. Hubungi admin untuk rekomendasi rute dan penawaran terbaik.",
+    },
+    {
       question: "Metode pembayaran apa yang tersedia?",
       answer:
-        "Pembayaran dapat dilakukan melalui transfer bank maupun pembayaran sesuai kesepakatan dengan admin.",
+        "Pembayaran dapat dilakukan melalui transfer bank maupun sesuai kesepakatan dengan admin.",
     },
   ];
 
   const [active, setActive] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-20 bg-slate-100">
+    <section id="faq" className="py-24 bg-white">
       <div className="max-w-4xl mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center text-blue-700">
+        <h2 className="text-5xl font-bold text-center text-slate-900">
           Pertanyaan yang Sering Diajukan
         </h2>
 
-        <div className="mt-12 space-y-4">
+        <div className="w-24 h-1 bg-blue-600 mx-auto mt-5 rounded-full"></div>
+
+        <p className="text-center text-slate-500 mt-6 mb-12">
+          Temukan jawaban atas pertanyaan yang paling sering diajukan pelanggan
+          kami.
+        </p>
+
+        <div className="space-y-5">
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl shadow"
+              className="bg-white rounded-3xl border border-slate-200 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
             >
               <button
                 onClick={() =>
                   setActive(active === index ? null : index)
                 }
-                className="w-full text-left px-6 py-5 font-semibold flex justify-between"
+                className="w-full flex items-center justify-between px-8 py-6 text-left font-semibold text-lg text-slate-900"
               >
-                {faq.question}
-                <span>{active === index ? "-" : "+"}</span>
+                <span>{faq.question}</span>
+                <span className="text-2xl text-blue-600">
+                  {active === index ? "−" : "+"}
+                </span>
               </button>
 
               {active === index && (
-                <div className="px-6 pb-5 text-gray-600">
+                <div className="px-8 pb-6 text-slate-600 leading-7">
                   {faq.answer}
                 </div>
               )}
