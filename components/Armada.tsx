@@ -30,7 +30,7 @@ export default function Armada() {
   },
   {
     name: "Hiace Commuter",
-    capacity: "12–15 Penumpang",
+    capacity: "10–12 Penumpang",
   },
 ];
 
